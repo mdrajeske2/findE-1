@@ -1,5 +1,3 @@
-// MD_Euler.cpp : Defines the entry point for the console application.
-//
 #include "finde.h"
 #include "stdafx.h"
 #include <iomanip>
@@ -7,7 +5,9 @@
 
 using namespace std;
 
-//extern double e;
+//forward declaration so it can now be used beyond this point in the file
+extern double e;
+extern double tol;
 
 int main()
 {
@@ -15,15 +15,14 @@ int main()
 
 	//takes input for tolerance. Variable is global in header file
 	cout << "\n Please enter the tolerance you would like   ";
-	cin >> tol; 
+	cin >> tol;
 	tol /= 10;
 
 	//call statement. Changes e through global variable
 	find_e();
 
-	//Output
+	//output
 	cout << "\nYour value for e is " << e << endl;
 
-    return 0;
+	return 0;
 }
-
