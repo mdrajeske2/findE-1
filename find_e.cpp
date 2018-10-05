@@ -2,27 +2,42 @@
 #include "stdafx.h"
 #include <cmath>
 
-double e = 1;
+double e = 0;
 double tol;
 
 void find_e() {
 	
 	//variables. Difference for evaluating tolerance, denominator for Euler formula, e and xn1 for
 	//calculating difference
-	e = 1; //euler's constant
+	//e = 1; //euler's constant
 	double difference; 
 	double nextPos = 1; //n + 1
 	double denominator = 1; //what 1 is being divided by
-	double n = 0; //
+	double fact; //factorial of n
+	double n = 0; //n in terms of the sequence
 
 	//calculates Euler's number to user's tolerance
 	do {
-		n++;
-		denominator *= n;
-		nextPos = e / denominator; 
-		 
+		// denominator is multiplied by a number that is one larger every iteration
+		for (int i = 0; i <= n; i++) { //calculates factorial
+			if (i == 0) {
+				fact = 1;
+			}
+			else {
+				fact *= i;
+						}
+		}
+		
+		//1 + 1/1, 1/1 + 1/(1*2), 1/(1*2*3)....
+		e += 1.0/fact; 		
+		
+		//calculates difference
 		difference = abs(e - nextPos);
-		e = nextPos;
-	} while (difference < tol);
+		
+		//sets up for next iteration
+		nextPos = e;
+		n++;
+		
+	} while (difference > tol);
 	
 }
