@@ -18,13 +18,20 @@ int main()
 	//takes input for tolerance. Variable is global in header file
 	cout << "\n Please enter the tolerance you would like   ";
 	cin >> tol;
-	tol /= 10; //ensures that loop runs until the correct tolerance is met
+	//tol /= 10; //ensures that loop runs until the correct tolerance is met
 
 	//call statement. Changes e through global variable
 	find_e();
 
+	//for setprecision and setw
+	double dec = abs(log10(tol));
+
+	//fixed float point, precision is number of decimal points in tol + 1
+	cout << fixed;
+	cout << setprecision(dec+1);
+
 	//output
-	cout << "\nYour value for e is " << e << endl;
+	cout << "\nYour value for e is " << setw(dec+3) << e << endl;
 
 	cin >> any;
 

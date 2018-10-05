@@ -29,13 +29,13 @@ void find_e() {
 		}
 		
 		//1 + 1/1, 1/1 + 1/(1*2), 1/(1*2*3)....
-		e += 1.0/fact; 		
+		nextPos = e + 1.0/fact; 		
 		
 		//calculates difference
 		difference = abs(e - nextPos);
 		
 		//sets up for next iteration
-		nextPos = e;
+		e = nextPos;
 		n++;
 		
 	} while (difference > tol);
